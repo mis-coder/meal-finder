@@ -1,0 +1,72 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #ff9f0d;
+  --dark-text: #484848;
+  --light-text: #a7a7a7;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  position: fixed;
+  height: 5rem;
+  width: 100%;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+header a {
+  color: black;
+  font-weight: 700;
+  margin-left: 1rem;
+  font-size: 2.5rem;
+  transition: all 0.3s linear;
+}
+
+header a:last-child {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+header a:hover {
+  opacity: 0.8;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meal-search-results,
+.recipe-container {
+  display: none;
+}
