@@ -39,6 +39,7 @@ header {
   margin-bottom: 3rem;
   display: flex;
   justify-content: space-between;
+  z-index: 3;
 }
 
 header a {
@@ -64,9 +65,131 @@ header a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.container::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--primary-color);
+  clip-path: circle(40% at 90% 24%);
+}
+
+.container * {
+  z-index: 2;
+}
+
+.meal-search {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 6rem;
+}
+
+.meal-search h3 {
+  font-family: "Niconne", cursive;
+  font-size: 6rem;
+}
+
+.cover-img {
+  height: auto;
+  width: auto;
+}
+
+.cover-img img {
+  height: 100%;
+  width: 100%;
+  filter: drop-shadow(2rem 3em 2rem rgba(0, 0, 0, 0.6));
+}
+
+.meal-search-box {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.search-content {
+  padding: 1rem 2rem 1rem 0.4rem;
+  font-family: inherit;
+  width: 70%;
+  font-size: 2rem;
+  border: none;
+  border-bottom: 0.15rem solid var(--primary-color);
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+  color: var(--dark-text);
+  background-color: transparent;
+}
+
+.search-content::placeholder {
+  color: var(--light-text);
+  font-weight: lighter;
+}
+
+.search-content:focus {
+  outline: none;
+  border-bottom-width: 0.3rem;
+}
+
+.search-btn {
+  padding: 2rem;
+  background: transparent;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.search-btn i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-left: -3rem;
+  transform: scaleX(1.2);
+}
+
+.search-btn:hover i {
+  cursor: pointer;
+  animation: movearrow 0.8s ease-out infinite;
+}
+
+@keyframes movearrow {
+  0% {
+    transform: translateX(-1rem);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(1rem);
+  }
 }
 
 .meal-search-results,
 .recipe-container {
   display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .meal-search h3 {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .meal-search {
+    margin-left: 0;
+    text-align: center;
+  }
+  .cover-img {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search-content {
+    width: 100%;
+  }
 }
