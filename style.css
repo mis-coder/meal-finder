@@ -12,6 +12,7 @@
   --light-text: #a7a7a7;
   --header-height: 5rem;
   --fancy-font: "Niconne", sans-serif;
+  --move-left: moveleft 0.8s ease-out infinite;
 }
 
 html {
@@ -172,10 +173,6 @@ header a:hover {
   }
 }
 
-.recipe-container {
-  display: none;
-}
-
 .meal-search-results {
   position: absolute;
   right: -100%;
@@ -220,7 +217,7 @@ header a:hover {
 
 .search-results-title:hover i {
   cursor: pointer;
-  animation: moveleft 0.8s ease-out infinite;
+  animation: var(--move-left);
 }
 
 @keyframes moveleft {
@@ -277,6 +274,99 @@ header a:hover {
 
 .arrow {
   padding-left: 1rem;
+}
+
+.recipe-container {
+  position: absolute;
+  right: -100%;
+  display: flex;
+  height: 100%;
+  width: 0%;
+  /* transition: width 3s ease-in-out; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  z-index: 3;
+  padding-top: calc(var(--header-height) + 20rem);
+}
+
+.recipe-container.show {
+  right: 0;
+  width: 100%;
+}
+
+.recipe-overview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.recipe-img {
+  height: auto;
+  width: auto;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.recipe-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1.6rem;
+}
+
+.recipe-overview i {
+  color: var(--primary-color);
+  font-size: 2rem;
+  transform: scaleX(1.3);
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.recipe-overview i:hover {
+  animation: var(--move-left);
+}
+
+.recipe-info {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.recipe-info .recipe-name {
+  font-size: 6rem;
+  color: var(--primary-color);
+  font-family: var(--fancy-font);
+  margin-bottom: 3rem;
+}
+
+.recipe-detail {
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.instrucitons,
+.ingredients {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.badge {
+  background-color: black;
+  height: 4rem;
+  color: #fff;
+  width: 50%;
+  text-align: center;
+  border-radius: 0.3rem;
+  padding-top: 1rem;
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 1000px) {
