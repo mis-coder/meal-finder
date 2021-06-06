@@ -321,7 +321,7 @@ header a:hover {
 }
 
 .recipe-info .recipe-name {
-  font-size: 6rem;
+  font-size: 3rem;
   color: var(--primary-color);
   font-family: var(--fancy-font);
   margin-bottom: 3rem;
